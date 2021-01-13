@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Germania+One&family=Poppins&display=swap');
+
+.brand-logo, .brand-logo span {
+    font-family: 'Germania One', cursive;
+    color: black;
+}
+
+h1,h2,h3,h4,h5,h6,span,a,p {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+}

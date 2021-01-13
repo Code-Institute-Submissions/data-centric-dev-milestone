@@ -14,6 +14,27 @@
 </head>
 
 <body>
+    <header>
+        <div class="row">
+            <nav class="white">
+                <div class="nav-wrapper">
+                    <div class="col s10 offset-s1">
+                        <a href="{{ url_for('index') }}" class="brand-logo black-text">Food Search <span>est
+                                2021</span></a>
+                        <ul id="nav-mobile" class="right black-text hide-on-med-and-down">
+                            <li><a class="black-text" href="sass.html">Home</a></li>
+                            <li><a class="black-text" href="badges.html">Community Recipes</a></li>
+                            <li><a class="black-text" href="collapsible.html">My Recipes</a></li>
+                            <li><a class="black-text" href="sass.html">Add Recipe</a></li>
+                            <li><a class="black-text" href="badges.html">Log in</a></li>
+                            <li><a class="black-text" href="collapsible.html">Register</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+    </header>
     <main class="container">
         {% block content %}
         {% endblock %}
