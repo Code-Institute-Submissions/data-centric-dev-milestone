@@ -21,20 +21,45 @@
                     <div class="col s10 offset-s1">
                         <a href="{{ url_for('index') }}" class="brand-logo black-text">Food Search <span>est
                                 2021</span></a>
+                        <a href="#" data-target="mobile-demo" class="sidenav-trigger black-text right"><i
+                                class="fas fa-bars"></i></a>
                         <ul id="nav-mobile" class="right black-text hide-on-med-and-down">
-                            <li><a class="black-text" href="sass.html">Home</a></li>
-                            <li><a class="black-text" href="badges.html">Community Recipes</a></li>
-                            <li><a class="black-text" href="collapsible.html">My Recipes</a></li>
-                            <li><a class="black-text" href="sass.html">Add Recipe</a></li>
-                            <li><a class="black-text" href="badges.html">Log in</a></li>
-                            <li><a class="black-text" href="collapsible.html">Register</a></li>
+                            <li><a class="black-text" href="">Home</a></li>
+                            <li><a class="black-text" href="">Community Recipes</a></li>
+                            <li><a class="black-text" href="">My Recipes</a></li>
+                            <li><a class="black-text" href="">Add Recipe</a></li>
+                            <li><a class="black-text" href="">Log in</a></li>
+                            <li><a class="black-text" href="">Register</a></li>
                         </ul>
                     </div>
                 </div>
             </nav>
         </div>
+        <!-- Mobile Navigation -->
+        <ul class="sidenav" id="mobile-demo">
+            <li><a class="black-text" href="sass.html">Home</a></li>
+            <li><a class="black-text" href="badges.html">Community Recipes</a></li>
+            <li><a class="black-text" href="collapsible.html">My Recipes</a></li>
+            <li><a class="black-text" href="sass.html">Add Recipe</a></li>
+            <li><a class="black-text" href="badges.html">Log in</a></li>
+            <li><a class="black-text" href="collapsible.html">Register</a></li>
+        </ul>
 
     </header>
+
+        <section>
+        <!-- flash messages -->
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="row flashes">
+                        <h4 class="light-blue lighten-4 center-align">{{ message }}</h4>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </section>
+    
     <main class="container">
         {% block content %}
         {% endblock %}
