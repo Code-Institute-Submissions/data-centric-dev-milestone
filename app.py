@@ -83,8 +83,8 @@ def login():
 @app.route("/add_recipe", methods=["GET", "POST"])
 def add_recipe():
     if request.method == "POST":
-        url = request.form.get("name")
-        url.replace(" ", "")
+        link = request.form.get("name")
+        url = link.replace(" ", "-")
         recipe = {
                     "name":  request.form.get("name"),
                     "origin": request.form.get("origin"),
