@@ -101,6 +101,12 @@ def add_recipe():
     return render_template("add_recipe.html")
 
 
+@app.route("/recipe/<recipe_name>")
+def recipe_page(recipe_name):
+    recipe = mongo.db.tasks.find_one({"url": recipe_name})
+    return render_template("recipe.html", recipe=recipe)
+
+
 @app.route("/")
 @app.route("/my_recipes")
 def my_recipes():
