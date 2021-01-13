@@ -25,7 +25,9 @@ h1,h2,h3,h4,h5,h6,span,a,p, button {
     background-color: #C4A21C;
     color: white;
 }
-
+.newlines {
+  whitespace: pre-line;
+}
 .login-text {
     padding-top: 25px;
 }
@@ -33,7 +35,7 @@ h1,h2,h3,h4,h5,h6,span,a,p, button {
    .input-field label {
      color: white;
    }
-   .input-field input[type=text], .input-field input[type=password] {
+   .input-field input[type=text], .input-field input[type=password], .input-field textarea {
      border-bottom: 1px solid white;
      box-shadow: 0 1px 0 0 white;
    }

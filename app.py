@@ -80,6 +80,24 @@ def login():
     return render_template("login.html")
 
 
+@app.route("/add_recipe", methods=["GET", "POST"])
+def add_recipe():
+    if request.method == "POST":
+        recipe = {
+            "name":  request.form.get("name"),
+            "origin": request.form.get("origin"),
+            "description": request.form.get("description").split("\n"),
+            "ingredients": request.form.get("ingredients").split("\n"),
+            "method": request.form.get("method").split("\n"),
+            "created_by": session["user"]
+        }
+        mongo.db.recipes.insert_one(recipe)
+        flash("Recipe Successfully added")
+        return redirect(url_for("index"))
+
+    return render_template("add_recipe.html")
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),

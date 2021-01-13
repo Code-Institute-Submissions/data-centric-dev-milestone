@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+<div class="row">
+
+    <div class="card login-card valign-wrapper">
+        <div class="col s12 card-content">
+            <h3 class="white-text">Create a new recipe using the form below</h3>
+            <p class="white-text">All recipes created on this website are instantly added to our community database.
+                Only you will be able to edit
+                and delete your recipes but others will be able to view them. </p>
+            <form method="POST" action="{{ url_for('add_recipe') }}">
+                <div class="row">
+                    <div class="input-field col s12 m5">
+                        <input id="name" name="name" type="text" pattern="^[a-zA-Z0-9\s]{5,15}$" class="validate"
+                            minlength="5" maxlength="50" required>
+                        <label for="name" name="name">Recipe Name</label>
+                    </div>
+                    <div class="input-field col s12 m5">
+                        <input id="origin" name="origin" type="text" pattern="^[a-zA-Z0-9\s]{5,15}$" class="validate">
+                        <label for="origin" name="origin">Origin of Dish (optional)</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12 m10">
+                        <textarea id="description" name="description" minlength="5" maxlength="500"
+                            class="materialize-textarea validate" required></textarea>
+                        <label for="description">Description</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12 m10">
+                        <textarea id="ingredients" name="ingredients" minlength="5" maxlength="500"
+                            class="materialize-textarea validate" required></textarea>
+                        <label for="ingredients">Ingredients (one per line)</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12 m10">
+                        <textarea id="method" name="method" minlength="5" maxlength="500"
+                            class="materialize-textarea validate" required></textarea>
+                        <label for="method">Method (add a new line for each instruction)</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <button type="submit" class="col btn m2 s6 btn-small">
+                        Publish
+                    </button>
+                </div>
+            </form>
+        </div>
+        <div style="clear:both"></div>
+    </div>
+
+</div>
+
+{% endblock %}

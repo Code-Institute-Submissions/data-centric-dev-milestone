@@ -1,9 +1,15 @@
 {% extends "base.html" %}
 {% block content %}
-    <h1>Testing Heroku Deployment</h1>
+<h1>Testing Heroku Deployment</h1>
 
-    {% for recipe in recipes %}
-        <p>{{ recipe.name }}</p>
-    {% endfor %}
+{% for recipe in recipes %}
+<div class="card blue">
+    <p>{{ recipe.name }}</p>
+        {% for desc in recipe.description %}
+            <li>{{ desc }}</li>
+        {% endfor %}
+</div>
+
+{% endfor %}
 
 {% endblock %}

@@ -23,12 +23,12 @@
                         <a href="#" data-target="mobile-demo" class="sidenav-trigger black-text right"><i
                                 class="fas fa-bars"></i></a>
                         <ul id="nav-mobile" class="right black-text hide-on-med-and-down">
-                            <li><a class="black-text" href="">Home</a></li>
+                            <li><a class="black-text" href="{{ url_for('index') }}">Home</a></li>
                             <li><a class="black-text" href="">Community Recipes</a></li>
                             <li><a class="black-text" href="">My Recipes</a></li>
-                            <li><a class="black-text" href="">Add Recipe</a></li>
-                            <li><a class="black-text" href="">Log in</a></li>
-                            <li><a class="black-text" href="">Register</a></li>
+                            <li><a class="black-text" href="{{ url_for('add_recipe') }}">Add Recipe</a></li>
+                            <li><a class="black-text" href="{{ url_for('login') }}">Log in</a></li>
+                            <li><a class="black-text" href="{{ url_for('register') }}">Register</a></li>
                         </ul>
                     </div>
                 </div>
