@@ -5,7 +5,45 @@
     color: black;
 }
 
-h1,h2,h3,h4,h5,h6,span,a,p {
+h1,h2,h3,h4,h5,h6,span,a,p, button {
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
 }
+
+.login-card {
+    background-color: #595959;
+    border-left: 20px solid #978027;
+    padding: 15px;
+}
+
+.btn {
+    background-color: #978027;
+    color: white;
+        text-transform: none;
+}
+.btn:hover {
+    background-color: #C4A21C;
+    color: white;
+}
+
+.login-text {
+    padding-top: 25px;
+}
+
+   .input-field label {
+     color: white;
+   }
+   .input-field input[type=text], .input-field input[type=password] {
+     border-bottom: 1px solid white;
+     box-shadow: 0 1px 0 0 white;
+   }
+
+
+   .header-logo {
+       margin-top: 10px;
+   }
+
+   .login-logo {
+       margin-left: auto;
+       margin-right: auto;
+   }

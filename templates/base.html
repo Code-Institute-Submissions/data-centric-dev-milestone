@@ -19,8 +19,7 @@
             <nav class="white">
                 <div class="nav-wrapper">
                     <div class="col s10 offset-s1">
-                        <a href="{{ url_for('index') }}" class="brand-logo black-text">Food Search <span>est
-                                2021</span></a>
+                        <a href="{{ url_for('index') }}" class="brand-logo black-text"><img class="header-logo" src="../static/media/Logo_color.svg" alt="logo"></a>
                         <a href="#" data-target="mobile-demo" class="sidenav-trigger black-text right"><i
                                 class="fas fa-bars"></i></a>
                         <ul id="nav-mobile" class="right black-text hide-on-med-and-down">
@@ -53,7 +52,7 @@
             {% if messages %}
                 {% for message in messages %}
                     <div class="row flashes">
-                        <h4 class="light-blue lighten-4 center-align">{{ message }}</h4>
+                        <h4 class="black-text center-align">{{ message }}</h4>
                     </div>
                 {% endfor %}
             {% endif %}
