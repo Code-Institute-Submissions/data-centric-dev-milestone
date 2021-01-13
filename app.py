@@ -83,19 +83,29 @@ def login():
 @app.route("/add_recipe", methods=["GET", "POST"])
 def add_recipe():
     if request.method == "POST":
+        url = request.form.get("name")
+        url.replace(" ", "")
         recipe = {
-            "name":  request.form.get("name"),
-            "origin": request.form.get("origin"),
-            "description": request.form.get("description").split("\n"),
-            "ingredients": request.form.get("ingredients").split("\n"),
-            "method": request.form.get("method").split("\n"),
-            "created_by": session["user"]
-        }
+                    "name":  request.form.get("name"),
+                    "origin": request.form.get("origin"),
+                    "description": request.form.get("description").split("\n"),
+                    "ingredients": request.form.get("ingredients").split("\n"),
+                    "method": request.form.get("method").split("\n"),
+                    "created_by": session["user"],
+                    "url": url
+                }
         mongo.db.recipes.insert_one(recipe)
         flash("Recipe Successfully added")
         return redirect(url_for("index"))
 
     return render_template("add_recipe.html")
+
+
+@app.route("/")
+@app.route("/my_recipes")
+def my_recipes():
+    recipes = list(mongo.db.recipes.find())
+    return render_template("my_recipes.html", recipes=recipes)
 
 
 if __name__ == "__main__":

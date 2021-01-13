@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="row">
+
+    <div class="card login-card valign-wrapper">
+        <div class="col s12 m5 card-content">
+            <h3 class="white-text">Your full list of
+                recipes</h3>
+            <p class="white-text">Share recipes with foodlovers all across the
+                world. Using our website you can search for
+                recipes created within our community.
+                You can also Join our community to create
+                your own!</p>
+        </div>
+        <div class="col m6 s12 valign-wrapper">
+            <img class="login-logo" src="../static/media/logo_white.svg" alt="white logo">
+        </div>
+        <div style="clear:both"></div>
+    </div>
+
+</div>
+
+
+    {% for recipe in recipes %}
+    {% if session.user|lower == recipe.created_by|lower %}
+    <div class="card blue">
+        <p>{{ recipe.name }}</p>
+            {% for desc in recipe.description %}
+                <li>{{ desc }}</li>
+            {% endfor %}
+    </div>
+
+    {% endif %}
+    {% endfor %}
+
+
+
+
+
+
+{% endblock %}
