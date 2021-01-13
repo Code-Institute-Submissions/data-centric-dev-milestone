@@ -46,7 +46,7 @@ def register():
         # put the new user into 'session' cookie
         session["user"] = request.form.get("username")
         flash("Registration Successful!")
-        return redirect(url_for("index", username=session["user"]))
+        return redirect(url_for("my_recipes", username=session["user"]))
 
     return render_template("register.html")
 
@@ -66,7 +66,7 @@ def login():
                         flash("Welcome, {}".format(
                             request.form.get("username")))
                         return redirect(url_for(
-                            "index", username=session["user"]))
+                            "my_recipes", username=session["user"]))
             else:
                 # invalid password - doesn't match the DB
                 flash("Incorrect Username and/or Password entered! Try again")
@@ -88,7 +88,7 @@ def add_recipe():
         recipe = {
                     "name":  request.form.get("name"),
                     "origin": request.form.get("origin"),
-                    "description": request.form.get("description").split("\n"),
+                    "description": request.form.get("description"),
                     "ingredients": request.form.get("ingredients").split("\n"),
                     "method": request.form.get("method").split("\n"),
                     "created_by": session["user"],
@@ -110,11 +110,31 @@ def recipe(recipe_id):
     return render_template("recipe.html", recipes=recipes)
 
 
-@app.route("/")
 @app.route("/my_recipes")
 def my_recipes():
     recipes = list(mongo.db.recipes.find())
     return render_template("my_recipes.html", recipes=recipes)
+
+
+@app.route("/community_recipes")
+def community_recipes():
+    recipes = list(mongo.db.recipes.find())
+    return render_template("community_recipes.html", recipes=recipes)
+
+
+@app.route("/search", methods=["GET", "POST"])
+def search():
+    query = request.form.get("query")
+    recipes = list(mongo.db.recipes.find({"$text": {"$search": query}}))
+    return render_template("community_recipes.html", recipes=recipes)
+
+
+@app.route("/logout")
+def logout():
+    # remove user from session cookie
+    flash("You have been logged out")
+    session.pop("user")
+    return redirect(url_for("login"))
 
 
 if __name__ == "__main__":

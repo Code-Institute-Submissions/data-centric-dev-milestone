@@ -24,11 +24,16 @@
                                 class="fas fa-bars"></i></a>
                         <ul id="nav-mobile" class="right black-text hide-on-med-and-down">
                             <li><a class="black-text" href="{{ url_for('index') }}">Home</a></li>
-                            <li><a class="black-text" href="">Community Recipes</a></li>
-                            <li><a class="black-text" href="">My Recipes</a></li>
+                            <li><a class="black-text" href="{{ url_for('community_recipes') }}">Community Recipes</a></li>
+                            {% if session.user %}
+                            <li><a class="black-text" href="{{ url_for('my_recipes') }}">My Recipes</a></li>
                             <li><a class="black-text" href="{{ url_for('add_recipe') }}">Add Recipe</a></li>
+                            <li><a class="black-text" href="{{ url_for('logout') }}">Log Out</a></li>
+                           {% else %}
                             <li><a class="black-text" href="{{ url_for('login') }}">Log in</a></li>
                             <li><a class="black-text" href="{{ url_for('register') }}">Register</a></li>
+                             {% endif %}
+                            
                         </ul>
                     </div>
                 </div>

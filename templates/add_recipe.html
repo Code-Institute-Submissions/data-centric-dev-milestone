@@ -13,8 +13,8 @@
             <form method="POST" action="{{ url_for('add_recipe') }}">
                 <div class="row">
                     <div class="input-field col s12 m5">
-                        <input id="name" name="name" type="text" pattern="^[a-zA-Z0-9\s]{5,15}$" class="validate"
-                            minlength="5" maxlength="50" required>
+                        <input id="name" name="name" type="text" pattern="^[a-zA-Z0-9_ ]*$" class="validate"
+                            minlength="5" maxlength="120" required>
                         <label for="name" name="name">Recipe Name</label>
                     </div>
                     <div class="input-field col s12 m5">
