@@ -6,14 +6,14 @@
 {% for message in messages %}
 <div class="banner-slim row">
     <div class="banner-slim-text col offset-m1">
-        <h2 class="white-text">{{ message }}</h2>
+        <h3 class="white-text">{{ message }}</h3>
     </div>
 </div>
 {% endfor %}
 {% else %}
 <div class="banner-slim row">
     <div class="banner-slim-text col offset-m1">
-        <h2 class="white-text">{{ recipes.name }}</h2>
+        <h3 class="white-text">{{ recipes.name }}</h3>
     </div>
 </div>
 {% endif %}
@@ -23,33 +23,35 @@
 {% block content %}
 
 <div class="row">
-    <div class="card recipe-card">
-        <div class="col s12 m5 align-left ">
+    <div class="card dedicated-recipe-card">
+        <div class="col s12 l3 offset-l1 m10 align-left ">
             <div class="white-border">
                 <h3 class="white-text">{{ recipes.name }}</h3>
                 <span class="created_by white-text">by {{ recipes.created_by }}</span>
             </div>
             <p class="white-text"> {% for desc in recipes.description %}{{ desc }} {% endfor %}</p>
             <p class="created_by white-text">Last edited: {{ recipes.day }}</p>
-            <div class="white-border">
+            <div class="white-border method">
                 <h3 class="white-text">Method</h3>
             </div>
+            <!-- if() Removes unwanted added li components -->
+            <ul class="method-list">
             {% for instruction in recipes.method %}
-            <!-- Removes unwanted added li components -->
-                {% if instruction == " " %}
+                {% if instruction == " " or instruction == "\n"  %}
                 {% else %}
                 <li class="white-text left-align">{{ instruction }}</li>
                 {% endif %}
             {% endfor %}
+            </ul>
+
             </div>
-        <div class="col m6 offset-m1 center-align s12 ">
-            <h4 class="white-text left-align">Ingredients</h4>
-            <ul>
+        <div class="ingredients-box col l5 m10 offset-l2 center-align s12 ">
+            <h3 class="white-text left-align">Ingredients</h3>
+            <ul class="ingredients-list">
                 {% for item in recipes.ingredients %}
                     <li class="white-text left-align">{{ item }}</li>
                 {% endfor %}
             </ul>
-            <a href="{{ url_for('add_recipe') }}" class="btn">Create recipe</a>
         </div>
         <div style="clear:both"></div>
     </div>
