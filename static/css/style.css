@@ -15,7 +15,7 @@ h4 {
     font-size: 22px;
 }
 
-span.created_by {
+span.created_by, .created_day {
     font-size: 12px;
 }
 .login-card {
@@ -68,13 +68,23 @@ span.created_by {
        margin: 0;
    }
       .recipe-card p {
-       padding: 30px 15px;
+       padding: 20px 15px;
    }
    .recipe-card .btn {
        margin-left: 25px;
+   } .created_day {
+       margin-left: 15px;
    }
 
    .text-border {
        border-left: 5px solid #978027;
        padding-left: 15px;
+   }
+
+   .icons {
+       margin-left: 30px;
+       color: #978027;
+       font-size: 18px;
+   } .icons i {
+       margin-right: 10px;
    }
