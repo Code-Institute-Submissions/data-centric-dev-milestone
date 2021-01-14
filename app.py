@@ -133,6 +133,13 @@ def edit_recipe(recipe_id):
     return render_template("edit_recipe.html", recipes=recipes)
 
 
+@app.route("/delete_recipe/<recipe_id>")
+def delete_recipe(recipe_id):
+    mongo.db.recipes.remove({"url": recipe_id})
+    flash("Recipe succesfuly removed")
+    return redirect(url_for("my_recipes"))
+
+
 @app.route('/recipe/<recipe_id>')
 def recipe(recipe_id):
     mongo.db.recipes.find_one(
