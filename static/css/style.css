@@ -151,3 +151,28 @@ ul.method-list li {
     padding-left: 100px!important;
 }
 }
+
+footer {
+    padding-top: 50px;
+    background-color: #595959;
+}
+.footer-copyright {
+    background-color: #4e4e4e;
+    padding: 20px;
+}
+
+footer h5 {
+    margin:0;
+}
+
+.search-col {
+    margin-top: 5px;
+}
+
+.login-card h3 {
+    margin-top: 0;
+}
+
+.search-form {
+    padding-bottom: 25px;
+}
