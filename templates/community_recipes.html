@@ -14,7 +14,7 @@
         <div class="col m6 offset-m1 s12 ">
             <form action="{{ url_for('search') }}" method="POST" class="">
                 <div class="row input-field">
-                    <input type="text"  name="query" id="query" minlength="3" class="validate" requied>
+                    <input type="text" name="query" id="query" minlength="3" class="validate" requied>
                     <label for="query">Example terms: China, Chicken, Pie, Greece, organic, pizza or burger </label>
                 </div>
                 <div class="col s12">
@@ -29,30 +29,34 @@
 <div class="row">
     {% for recipe in recipes %}
 
-    <div class="col s12 m6">
+    <div class="col s12 xl6 m12">
         <div class="card recipe-card">
             <div class="text-border">
                 <h4>{{ recipe.name }}</h4>
                 <span class="created_by">by {{ recipe.created_by }}</span>
             </div>
             <p> {% for desc in recipe.description %}
-                {{ desc }}
+                {{ desc | truncate(120) }}
                 {% endfor %}
             </p>
-            <span class="created_day">{{ recipe.day }}</span>
-            <div class="row">
-                <a href="/recipe/{{ recipe.url }}" class="btn">View Recipe</a>
-            </div>
-            {% if session.user|lower == recipe.created_by|lower %}
-            <div class="row">
-                <div class="icons">
-                <i class="fas fa-edit"></i>
-                <i class="fas fa-trash-alt"></i>
+            <div class="recipe-lower">
+
+
+                <span class="created_day">{{ recipe.day }}</span>
+                <div class="row">
+                    <a href="/recipe/{{ recipe.url }}" class="btn">View Recipe</a>
                 </div>
+                {% if session.user|lower == recipe.created_by|lower %}
+                <div class="row">
+                    <div class="icons">
+                        <a href="/edit_recipe/{{ recipe.url }}"><i class="fas fa-edit"></i></a>
+                        <i class="fas fa-trash-alt"></i>
+                    </div>
+                </div>
+                {% endif %}
             </div>
-            {% endif %}
         </div>
     </div>
     {% endfor %}
-    </div>
+</div>
 {% endblock %}

@@ -63,11 +63,11 @@ def login():
             # checks hashed password against entered password
             if check_password_hash(
                     existing_user["password"], request.form.get("password")):
-                        session["user"] = request.form.get("username")
-                        flash("Welcome, {}".format(
-                            request.form.get("username")))
-                        return redirect(url_for(
-                            "my_recipes", username=session["user"]))
+                session["user"] = request.form.get("username")
+                flash("Welcome, {}".format(
+                    request.form.get("username")))
+                return redirect(url_for(
+                    "my_recipes", username=session["user"]))
             else:
                 # invalid password - doesn't match the DB
                 flash("Incorrect Username and/or Password entered! Try again")
@@ -89,20 +89,48 @@ def add_recipe():
         today = date.today()
         d2 = today.strftime("%B %d, %Y")
         recipe = {
-                    "name":  request.form.get("name"),
-                    "origin": request.form.get("origin"),
-                    "description": request.form.get("description").split("\n"),
-                    "ingredients": request.form.get("ingredients").split("\n"),
-                    "method": request.form.get("method").split("\n"),
-                    "created_by": session["user"],
-                    "url": url,
-                    "day": d2
-                }
+            "name":  request.form.get("name"),
+            "origin": request.form.get("origin"),
+            "description": request.form.get("description").split("\n"),
+            "ingredients": request.form.get("ingredients").split("\n"),
+            "method": request.form.get("method").split("\n"),
+            "created_by": session["user"],
+            "url": url,
+            "day": d2
+        }
         mongo.db.recipes.insert_one(recipe)
         flash("Recipe Successfully added")
         return redirect(url_for("index"))
 
     return render_template("add_recipe.html")
+
+
+@app.route('/edit_recipe/<recipe_id>', methods=["GET", "POST"])
+def edit_recipe(recipe_id):
+    mongo.db.recipes.find_one(
+        {'url': recipe_id}
+    )
+    if request.method == "POST":
+        link = request.form.get("name")
+        url = link.replace(" ", "-")
+        today = date.today()
+        d2 = today.strftime("%B %d, %Y")
+        submit = {
+            "name":  request.form.get("name"),
+            "origin": request.form.get("origin"),
+            "description": request.form.get("description").split("\n"),
+            "ingredients": request.form.get("ingredients").split("\n"),
+            "method": request.form.get("method").split("\n"),
+            "created_by": session["user"],
+            "url": url,
+            "day": d2
+        }
+        mongo.db.recipes.update({"url": recipe_id}, submit)
+        flash("Recipe Successfully Updated")
+        return redirect(url_for("my_recipes"))
+
+    recipes = mongo.db.recipes.find_one_or_404({'url': recipe_id})
+    return render_template("edit_recipe.html", recipes=recipes)
 
 
 @app.route('/recipe/<recipe_id>')

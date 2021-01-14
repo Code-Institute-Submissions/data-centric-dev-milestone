@@ -12,7 +12,7 @@ h1,h2,h3,h4,h5,h6,span,a,p, button {
 
 
 h4 {
-    font-size: 22px;
+    font-size: 20px;
 }
 
 span.created_by, .created_day {
@@ -26,7 +26,6 @@ span.created_by, .created_day {
 @media (max-width:600px) {
     .login-card{
         display: block;
-
     }
 }
 
@@ -42,8 +41,7 @@ span.created_by, .created_day {
 .login-text {
     padding-top: 25px;
 }
-
-   .input-field label {
+   .input-field label, input, textarea {
      color: white;
    }
    .input-field input[type=text], .input-field input[type=password], .input-field textarea {
@@ -62,18 +60,26 @@ span.created_by, .created_day {
    }
 
    .recipe-card {
-       padding: 40px 20px;
+       padding: 40px 20px 10px 20px;
    }
    .recipe-card h4 {
        margin: 0;
    }
       .recipe-card p {
-       padding: 20px 15px;
+       padding: 20px 15px 0 15px;
    }
    .recipe-card .btn {
        margin-left: 25px;
+       margin-top: 20px;
    } .created_day {
        margin-left: 15px;
+   }
+
+   @media (min-width:992px) {
+       .recipe-card {
+           height: 350px;
+       }
+
    }
 
    .text-border {
@@ -88,3 +94,4 @@ span.created_by, .created_day {
    } .icons i {
        margin-right: 10px;
    }
+
