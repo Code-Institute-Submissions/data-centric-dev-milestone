@@ -37,8 +37,9 @@
     </div>
 </div>
 <div class="row">
-    {% for recipe in recipes %}
 
+    {% for recipe in recipes %}
+  {% if session.user|lower == recipe.created_by|lower %}
     <div class="col s12 xl6 m12">
         <div class="card recipe-card">
             <div class="text-border">
@@ -46,27 +47,25 @@
                 <span class="created_by">by {{ recipe.created_by }}</span>
             </div>
             <p> {% for desc in recipe.description %}
-                {{ desc | truncate(120) }}
+                    {{ desc | truncate(120) }}
                 {% endfor %}
             </p>
             <div class="recipe-lower">
-
-
                 <span class="created_day">{{ recipe.day }}</span>
                 <div class="row">
                     <a href="/recipe/{{ recipe.url }}" class="btn">View Recipe</a>
                 </div>
-                {% if session.user|lower == recipe.created_by|lower %}
                 <div class="row">
                     <div class="icons">
                         <a href="/edit_recipe/{{ recipe.url }}"><i class="fas fa-edit"></i></a>
                         <a href="/delete_recipe/{{ recipe.url }}"><i class="fas fa-trash-alt"></i></a>
                     </div>
                 </div>
-                {% endif %}
             </div>
         </div>
     </div>
+        {% endif %}
     {% endfor %}
+
 </div>
 {% endblock %}

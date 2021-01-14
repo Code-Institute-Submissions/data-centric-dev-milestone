@@ -37,7 +37,7 @@
             <!-- if() Removes unwanted added li components -->
             <ul class="method-list">
             {% for instruction in recipes.method %}
-                {% if instruction == " " or instruction == "\n"  %}
+                {% if instruction == " " or instruction == "\n" %}
                 {% else %}
                 <li class="white-text left-align">{{ instruction }}</li>
                 {% endif %}
