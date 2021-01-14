@@ -14,7 +14,9 @@ h1,h2,h3,h4,h5,h6,span,a,p, button {
 h4 {
     font-size: 20px;
 }
-
+strong {
+    font-weight: 600;
+}
 span.created_by, .created_day {
     font-size: 12px;
 }
@@ -95,3 +97,19 @@ span.created_by, .created_day {
        margin-right: 10px;
    }
 
+   a {
+       color: #978027;
+   }
+
+.banner-slim {
+    background-image: url(../media/banner_slim.png);
+    padding: 20px 0;
+}
+
+header .row {
+    margin-bottom: 0;
+}
+
+nav {
+    box-shadow: none;
+}

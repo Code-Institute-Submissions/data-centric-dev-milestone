@@ -152,7 +152,9 @@ def recipe(recipe_id):
 @app.route("/my_recipes")
 def my_recipes():
     recipes = list(mongo.db.recipes.find())
-    return render_template("my_recipes.html", recipes=recipes)
+    username = session['user']
+    return render_template(
+        "my_recipes.html", recipes=recipes, username=username)
 
 
 @app.route("/community_recipes")
