@@ -100,7 +100,7 @@ def add_recipe():
         }
         mongo.db.recipes.insert_one(recipe)
         flash("Recipe Successfully added")
-        return redirect(url_for("index"))
+        return redirect(url_for("my_recipes"))
 
     return render_template("add_recipe.html")
 

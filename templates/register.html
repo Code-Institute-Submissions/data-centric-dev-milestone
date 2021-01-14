@@ -1,4 +1,25 @@
 {% extends "base.html" %}
+
+{% block banner_slim %}
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <div class="banner-slim row">
+                    <div class="banner-slim-text col offset-m1">
+                        <h2 class="white-text">{{ message }}</h2>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <div class="banner-slim row">
+                <div class="banner-slim-text col offset-m1">
+                    <h2 class="white-text">Browse your recipes!</h2>
+                </div>
+            </div>
+        {% endif %}
+    {% endwith %}
+{% endblock %}
+
 {% block content %}
 
 
@@ -6,7 +27,7 @@
 
     <div class="card login-card valign-wrapper">
         <div class="col s12 m5 card-content">
-            <h3 class="white-text">Register</h3>
+            <h2 class="white-text">Register</h2>
             <form method="POST" action="{{ url_for('register') }}">
                 <div class="row">
                     <div class="input-field col s12 m12">

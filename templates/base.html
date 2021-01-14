@@ -19,21 +19,23 @@
             <nav class="white">
                 <div class="nav-wrapper">
                     <div class="col s10 offset-s1">
-                        <a href="{{ url_for('index') }}" class="brand-logo black-text"><img class="header-logo" src="../static/media/Logo_color.svg" alt="logo"></a>
+                        <a href="{{ url_for('index') }}" class="brand-logo black-text"><img class="header-logo"
+                                src="../static/media/Logo_color.svg" alt="logo"></a>
                         <a href="#" data-target="mobile-demo" class="sidenav-trigger black-text right"><i
                                 class="fas fa-bars"></i></a>
                         <ul id="nav-mobile" class="right black-text hide-on-med-and-down">
                             <li><a class="black-text" href="{{ url_for('index') }}">Home</a></li>
-                            <li><a class="black-text" href="{{ url_for('community_recipes') }}">Community Recipes</a></li>
+                            <li><a class="black-text" href="{{ url_for('community_recipes') }}">Community Recipes</a>
+                            </li>
                             {% if session.user %}
                             <li><a class="black-text" href="{{ url_for('my_recipes') }}">My Recipes</a></li>
                             <li><a class="black-text" href="{{ url_for('add_recipe') }}">Add Recipe</a></li>
                             <li><a class="black-text" href="{{ url_for('logout') }}">Log Out</a></li>
-                           {% else %}
+                            {% else %}
                             <li><a class="black-text" href="{{ url_for('login') }}">Log in</a></li>
                             <li><a class="black-text" href="{{ url_for('register') }}">Register</a></li>
-                             {% endif %}
-                            
+                            {% endif %}
+
                         </ul>
                     </div>
                 </div>
@@ -50,21 +52,8 @@
         </ul>
 
     </header>
-
-        <section>
-        <!-- flash messages -->
-        {% with messages = get_flashed_messages() %}
-            {% if messages %}
-                {% for message in messages %}
-                    <div class="row flashes">
-                        <h4 class="black-text center-align">{{ message }}</h4>
-                    </div>
-                {% endfor %}
-            {% endif %}
-        {% endwith %}
-    </section>
-        {% block banner_slim %}
-        {% endblock %}
+    {% block banner_slim %}
+    {% endblock %}
     <main class="container">
         {% block content %}
         {% endblock %}

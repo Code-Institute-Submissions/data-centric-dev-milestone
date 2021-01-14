@@ -1,4 +1,25 @@
 {% extends "base.html" %}
+
+{% block banner_slim %}
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <div class="banner-slim row">
+                    <div class="banner-slim-text col offset-m1">
+                        <h2 class="white-text">{{ message }}</h2>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <div class="banner-slim row">
+                <div class="banner-slim-text col offset-m1">
+                    <h2 class="white-text">Login to view and create your own recipes!</h2>
+                </div>
+            </div>
+        {% endif %}
+    {% endwith %}
+{% endblock %}
+
 {% block content %}
 
 
