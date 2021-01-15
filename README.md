@@ -1,5 +1,17 @@
 # Data Centric Development - Milestone Project - Food Search
 
+How to use the site and check functionality:
+
+1. Load website and nagiate through the homepage
+2. Create account using a username and password. 
+3. Add a recipe following the form instructions.
+4. View the recipe by accessing the 'my_recipes' page. 
+5. Edit the recipe using the edit icon on this page. 
+6. Delete said recipe.
+7. Logout
+8. Login using the same Username and Password
+9. Navigate to the community recipes page.
+10. Use search function as instructed int the paragraph text.
 
 ## UX
  
@@ -49,11 +61,12 @@ Flash messages are used to notify the user of a change. For e.g, if you login or
 
 Logic:
 Overall, an extensive amount of logic is being used. It's used to search the database for usernames and passwords, as well as displaying relevant contnt dependig on who is logged in. 
+Each recipe has it's own page, if the recipe author is logged in, then they will also be able to edit and delete that recipe. 
+The desciptions deisplayed in the recipes overview boxes is truncated (150).
 
 ## Technologies Used
 
-In this section, you should mention all of the languages, frameworks, libraries, and any other tools that you have used to construct this project. For each, provide its name, a link to its official site and a short sentence of why it was used.
-
+In the development of this project, I have used the follolowing technologies;
 - Python
 - HTML5
 - CSS / Materialize
@@ -62,20 +75,25 @@ In this section, you should mention all of the languages, frameworks, libraries,
 - Flask
 - Heroku (for deployement)
 - Adobe XD (for mockups)
+- Jinja Templating Language
 
 ## Testing
 
 
 ## Deployment
+The website was coded in GitPod, an IDE used to easily work with GitHub.
 
+I created a MongoDB database to store the users and recipes data. I then set this up in Heroku using the config Vars settings to keep the database information secure. A Procfile was created to run the app in Heroku. 
 
+To keep the process automated, I had enabled Heroku to get the mater branch from GitHub everytime it was updated. This means that when I push from GitPod, it pulls that data into Heroku. 
 
 ## Credits
 
 ### Content
-
+Recipes - Recipes were taken from the BBC Good Food website - https://www.bbcgoodfood.com/
 
 ### Media
+I have used free stock images from Pexels - https://www.pexels.com/
 
-
-### Acknowledgements
+Valeria Boltneva - https://www.pexels.com/photo/close-up-photo-of-burger-1639562/
+Mike - https://www.pexels.com/photo/variety-of-spices-and-vegetables-on-black-surface-1192031/
