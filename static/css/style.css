@@ -29,6 +29,7 @@ strong {
     background-color: #C4A21C;
     color: white;
 }
+
 .text-border {
     border-left: 5px solid #978027;
     padding-left: 15px;
@@ -87,6 +88,15 @@ footer h5 {
     padding: 25px;
     border-left: 10px solid #978027;
     background-color: rgba(255, 255, 255, 0.4);
+}
+
+h2.recents {
+    color: #595959;
+    margin: 75px 0 50px 10px;
+}
+
+.home-slim {
+    margin: 50px 0 0 0;
 }
 
 /* Login Cards */
@@ -157,7 +167,7 @@ span.created_by, .created_day {
     margin: 0;
 }
 
-.recipe-card .white-border {
+.recipe-card .white-border, .banner-slim .white-border {
     border-left: 5px solid white;
 }
 
@@ -183,7 +193,7 @@ ul.method-list li {
 
 @media (min-width:1200px) {
     .home-banner-text-box {
-        width: 35%;
+        width: 500px;
     }
     .banner-home {
         padding: 100px;

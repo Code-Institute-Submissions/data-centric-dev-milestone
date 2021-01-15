@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% block banner_slim %}
+<!-- Full width call to action -->
 <div class="row">
     <div class="col m10 offset-m1">
         <div class="banner-home">
@@ -17,15 +18,12 @@
     </div>
 </div>
 {% endblock %}
+
 {% block content %}
-
-
-
-
-
+<!-- Most recent recipes - get's the 4 most recently made / edited -->
+<h2 class="text-border recents">Most recent community recipes</h2>
 <div class="row">
     {% for recipe in recipes %}
-
     <div class="col s12 xl6 m12">
         <div class="card recipe-card">
             <div class="text-border">
@@ -55,5 +53,17 @@
         </div>
     </div>
     {% endfor %}
+</div>
+{% endblock %}
+
+<!-- Full width call to action -->
+{% block footer_banner %}
+<div class="banner-slim row home-slim valign-wrapper">
+    <div class="white-border banner-slim-text col m6 offset-m2">
+        <h3 class="white-text">Find recipes by using our search tool!</h3>
+    </div>
+    <div class="col m4 valign-wrapper">
+        <a href="{{ url_for('community_recipes') }}" class="btn">Search</a>
+    </div>
 </div>
 {% endblock %}
