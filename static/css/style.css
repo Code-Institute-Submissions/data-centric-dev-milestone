@@ -213,3 +213,8 @@ ul.method-list li {
          height: 350px;
     }
 }
+@media (max-width:992px) {
+    .l0 {
+        display: none;
+    }
+}
