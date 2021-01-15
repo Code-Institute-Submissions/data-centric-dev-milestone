@@ -1,15 +1,59 @@
 {% extends "base.html" %}
-{% block content %}
-<h1>Testing Heroku Deployment</h1>
 
-{% for recipe in recipes %}
-<div class="card blue">
-    <p>{{ recipe.name }}</p>
-        {% for desc in recipe.description %}
-            <li>{{ desc }}</li>
-        {% endfor %}
+{% block banner_slim %}
+<div class="row">
+    <div class="col m10 offset-m1">
+        <div class="banner-home">
+            <div class="white-text home-banner-text-box">
+                <h3>The ultimate recipe directory</h3>
+                <p>Share recipes with foodlovers all across the
+                    world. Using our website you can search for
+                    recipes created within our community.
+                    You can also Join our community to create
+                    your own!</p>
+                <a href="" class="btn">Search</a><a href="" class="btn">Login</a>
+            </div>
+        </div>
+    </div>
 </div>
+{% endblock %}
+{% block content %}
 
-{% endfor %}
 
+
+
+
+<div class="row">
+    {% for recipe in recipes %}
+
+    <div class="col s12 xl6 m12">
+        <div class="card recipe-card">
+            <div class="text-border">
+                <h4>{{ recipe.name }}</h4>
+                <span class="created_by">by {{ recipe.created_by }}</span>
+            </div>
+            <p> {% for desc in recipe.description %}
+                {{ desc | truncate(120) }}
+                {% endfor %}
+            </p>
+            <div class="recipe-lower">
+
+
+                <span class="created_day">{{ recipe.day }}</span>
+                <div class="row">
+                    <a href="/recipe/{{ recipe.url }}" class="btn">View Recipe</a>
+                </div>
+                {% if session.user|lower == recipe.created_by|lower %}
+                <div class="row">
+                    <div class="icons">
+                        <a href="/edit_recipe/{{ recipe.url }}"><i class="fas fa-edit"></i></a>
+                        <a href="/delete_recipe/{{ recipe.url }}"><i class="fas fa-trash-alt"></i></a>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
 {% endblock %}

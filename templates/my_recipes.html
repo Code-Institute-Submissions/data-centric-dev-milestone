@@ -37,7 +37,6 @@
     </div>
 </div>
 <div class="row">
-
     {% for recipe in recipes %}
   {% if session.user|lower == recipe.created_by|lower %}
     <div class="col s12 xl6 m12">
@@ -66,6 +65,5 @@
     </div>
         {% endif %}
     {% endfor %}
-
 </div>
 {% endblock %}
