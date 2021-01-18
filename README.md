@@ -19,10 +19,10 @@ Food search is an online, free-to-use recipe directory. Using Food search you wi
 
 I have created a simple yet sleek style and layout to ensure all user-types can use the website without errors. The navigation is very easy to use and I have included many call-to-actions to help users get to where they need to be quicker. All forms are created with guidence on what to enter. For example, I have asked that people enter new ingredients one per line. 
 
-I created mockups using my preffered prototyping software, Adobe XD. The mockups can be found in PDF format here - https://github.com/cobyfoster/data-centric-dev-milestone/tree/master/static/media/mockup.pdf
-If the above link returns GitHub errors, refer to this dropbx link - https://www.dropbox.com/s/yctaq48sgbqcxzz/mockup.pdf?dl=0
+I created wireframes using my preffered prototyping software, Adobe XD. The wireframes can be found in PDF format here - https://github.com/cobyfoster/data-centric-dev-milestone/tree/master/static/media/
+If the above link returns GitHub errors, refer to this dropbx link - https://www.dropbox.com/sh/b37uwqzqgutwbt8/AAB8qQWU0wDdnCJqTbopZIn0a?dl=0
 
-I used the mockups as guidence and then futher edited the layout in code to make it more user friendly and responsive. The design itself is naturally responsive so I did not need to do tablet mockups. 
+I used the wireframes as guidence and then futher edited the layout in code to make it more user friendly and responsive. The design itself is naturally responsive so it did not require many updates. 
 
 ## Features
 
