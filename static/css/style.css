@@ -81,7 +81,7 @@ footer h5 {
 .banner-home {
     background-image: url(../media/banner-home.png);
     background-position: center center;
-    padding: 50px;
+    padding: 25px;
 }
 
 .home-banner-text-box {
@@ -206,6 +206,14 @@ ul.method-list li {
 @media (max-width:600px) {
     .login-card{
         display: block;
+    }
+    .brand-logo {
+        left: 10px !important;
+        transform: none !important;
+        max-width: 200px;
+    }
+    .header-logo {
+        max-width: 200px;
     }
 }
 @media (min-width:992px) {
