@@ -22,7 +22,7 @@ I have created a simple yet sleek style and layout to ensure all user-types can 
 I created mockups using my preffered prototyping software, Adobe XD. The mockups can be found in PDF format here - https://github.com/cobyfoster/data-centric-dev-milestone/tree/master/static/media/mockup.pdf
 If the above link returns GitHub errors, refer to this dropbx link - https://www.dropbox.com/s/yctaq48sgbqcxzz/mockup.pdf?dl=0
 
-I used the mockups as guidence and then futher edited the layout in code to make it more user friendly and responsive. 
+I used the mockups as guidence and then futher edited the layout in code to make it more user friendly and responsive. The design itself is naturally responsive so I did not need to do tablet mockups. 
 
 ## Features
 
