@@ -79,6 +79,76 @@ In the development of this project, I have used the follolowing technologies;
 
 ## Testing
 
+### Code / Automatic Testing
+#### Server Resonse - Heroku
+See Line 19 of the tests.py file. Here I ran a HTTP request to my Heroku url to check the server response. 
+Outcome - (200) OK.
+
+#### Database connection - MongoDB
+See line 28 of tests.py. Here I connected to my Database and created a 'tests' collection within the DB. I then rceated a function that added a dict to that collection.
+Outcome - I checked the Database collection and the document was there with the correct entry data. Gong very well so far!
+
+### Manual Testing
+#### Visually check Heroku
+To ensure the server response was correct in my automatic testing, I want to my Heroku project to confirm it was working as expected. 
+Outcome - The correct data was visable and the connection to GITHUB master branch was working correctly.
+
+#### POST mongodb data
+This involves the testing of my add_recipe page and my register / login functionality. 
+
+First I created a user without using my visual form, I then checked mogno manually ot make sure that it was working as it should. I did this in my app.py the same way I did it in my tests.py file (just for the user collection). This was also how I tested the password hashing function of Werkzeug.
+Outcome - on first attempt, it did not work. So I went to stack overflow to find some information on how the hashing feature works. It turns out, I was not importing the correct werkzeug.security as I should have done.
+Result - I swiftly fixed this error, and re-tested. It works! I then tested my form inputs and again, ti works as it should!
+
+#### GET mongodb data
+Before starting any of the UI design code, I wanted to pull data from mongo. On my home page, I created a box which got all document field "name" in the 'recipes' database. 
+Outcome - The document name came up as expected. This can be found it my earler commits to GitHub on the index page. 
+
+#### W3C Validation & PEP-8 Complience
+The GitPod IDE already has PEP-8 complience helpers, it shows me when a line is too long or when the corret spaces are not applied. I then went to http://pep8online.com/ and inputed all of my code (several checks, one for each doc). I then checked URL's using https://validator.w3.org/.
+Outcome - As my IDE has PEP-8 helpers there were no issues. However, I did have a few minor issues with W3C that I resolved swiftly. 
+
+#### UX testing
+I did this in 2 stages. Then followed mith 3rd party testing. 
+1. I manually checked all links, buttons, triggers and forms to make sure that they were all working correctly.
+2. I used a link checking tool https://www.internetmarketingninjas.com/
+Outcome - The manual check showed NO incorrect links. The automatic tool did not recognise all butons but did not come back with any errors. I then double tested manually to make sure!
+
+3rd Party testing - I then asked my partner to test the websites functionality. I did not give her any guidence on how to use the website, instead I gave ther the mouse and told her to use it as if it were BBC Good Food.
+Outcome - Quote from Pinsuda "The app's styling was welcoming and strong images of food made me want to keep reading! The community recipe sharing functionality was really easy to use and a great way for sharing recipes. I like the search tool on the search page but I feel that I should be able to look for the origin of the dish as this is something you have to inout into the add recipe fill out form."
+my response - I added the origin to the search functionality, then I cooked dinner...
+
+#### Responsive testing
+To test the apps responsiveness, I did this 2 ways. 
+1. Using Google's inspect eliments device toolbar. I set it to responsive and changed between screen widths. 
+2. I manually tested using my iPhone 12 Pro Max, my partners Samsung note 20 and an old iPhone 8 I had lying around. I then tested with my samsung Tab S6 and my partners iPad air. 
+Outcome - There were a few minor issues on mobile, especcially on the iPhone 8. These issues were on the Grey boxes on login, register and search function. Easy fixes, I increased passing in these areas.
+
+#### Browser testing 
+To check browser compatibility, I navigated and used the site on the following browsers.
+1. Google Chrome
+2. Mozilla Firefox
+3. Microsoft Edge
+4. Opera
+5. IE11 (depricated)
+
+Outcome - All browsers were fine although I did notice a color error on IE11. I must also note, IE11 is incredibly slow but I read up on this and it is not due to the application itself. 
+
+#### Google Lighthouse
+The report as follows. 
+
+1. Performance 66/100
+This is due to me not using webP as image file type. I did not do this as WebP is not supported on all browsers and devices.
+
+2. Accessibillity 86/100
+This is due to background color and foreground color. I do not agree with this as I have used shadows to identify the different sections. I did not change my code. 
+
+3. Best Practices 93/100 - Updated 98/100!
+Great score! The report told me to add rel="noopener" to my outbound links in the footer. After doing this, it updated to 98!
+
+4. SEO 96/100
+No comments here!
+
 
 ## Deployment
 The website was coded in GitPod, an IDE used to easily work with GitHub.
