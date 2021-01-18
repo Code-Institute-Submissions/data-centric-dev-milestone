@@ -18,6 +18,7 @@
     <header>
         <div class="row">
             <nav class="white">
+                <!-- Desktop Navigation -->
                 <div class="nav-wrapper">
                     <div class="col s10 offset-s1">
                         <a href="{{ url_for('index') }}" class="brand-logo black-text"><img class="header-logo"
@@ -47,11 +48,11 @@
             <li><a class="black-text" href="{{ url_for('index') }}">Home</a></li>
             <li><a class="black-text" href="{{ url_for('community_recipes') }}">Community Recipes</a>
             </li>
-            {% if session.user %} <!-- Only display if logged in -->
+            {% if session.user %}
             <li><a class="black-text" href="{{ url_for('my_recipes') }}">My Recipes</a></li>
             <li><a class="black-text" href="{{ url_for('add_recipe') }}">Add Recipe</a></li>
             <li><a class="black-text" href="{{ url_for('logout') }}">Log Out</a></li>
-            {% else %} <!-- Only display if not logged in -->
+            {% else %}
             <li><a class="black-text" href="{{ url_for('login') }}">Log in</a></li>
             <li><a class="black-text" href="{{ url_for('register') }}">Register</a></li>
             {% endif %}
@@ -66,6 +67,7 @@
     </main>
     {% block footer_banner %}
     {% endblock %}
+    <!-- Global Footer -->
     <footer class="foot">
         <div class="container">
             <div class="row">

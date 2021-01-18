@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-
+<!-- Flash message in slim block -->
 {% block banner_slim %}
 {% with messages = get_flashed_messages() %}
 {% if messages %}
@@ -52,7 +52,6 @@
 </div>
 <div class="row">
     {% for recipe in recipes %}
-
     <div class="col s12 xl6 m12">
         <div class="card recipe-card">
             <div class="text-border">
@@ -64,8 +63,6 @@
                 {% endfor %}
             </p>
             <div class="recipe-lower">
-
-
                 <span class="created_day">{{ recipe.day }}</span>
                 <div class="row">
                     <a href="/recipe/{{ recipe.url }}" class="btn">View Recipe</a>

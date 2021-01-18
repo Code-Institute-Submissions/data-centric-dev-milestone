@@ -89,6 +89,7 @@ def add_recipe():
         today = date.today()
         d2 = today.strftime("%B %d, %Y")
         recipe = {
+            # Get form data and add it to recipe collection
             "name":  request.form.get("name"),
             "origin": request.form.get("origin"),
             "description": request.form.get("description").split("\n"),
@@ -116,6 +117,7 @@ def edit_recipe(recipe_id):
         today = date.today()
         d2 = today.strftime("%B %d, %Y")
         submit = {
+            # edit the old entry with the new data
             "name":  request.form.get("name"),
             "origin": request.form.get("origin"),
             "description": request.form.get("description").split("\n"),
@@ -135,6 +137,7 @@ def edit_recipe(recipe_id):
 
 @app.route("/delete_recipe/<recipe_id>")
 def delete_recipe(recipe_id):
+    # get recipe by url, remove the entry
     mongo.db.recipes.remove({"url": recipe_id})
     flash("Recipe succesfuly removed")
     return redirect(url_for("my_recipes"))
@@ -145,6 +148,7 @@ def recipe(recipe_id):
     mongo.db.recipes.find_one(
         {'url': recipe_id}
     )
+    # display recipe page
     recipes = mongo.db.recipes.find_one_or_404({'url': recipe_id})
     return render_template("recipe.html", recipes=recipes)
 
@@ -166,6 +170,7 @@ def community_recipes():
 @app.route("/search", methods=["GET", "POST"])
 def search():
     query = request.form.get("query")
+    # Link search to index search in MongoDB
     recipes = list(mongo.db.recipes.find({"$text": {"$search": query}}))
     return render_template("community_recipes.html", recipes=recipes)
 
@@ -176,6 +181,12 @@ def logout():
     flash("You have been logged out")
     session.pop("user")
     return redirect(url_for("login"))
+
+
+@app.errorhandler(404)
+def page_not_found(e):
+    # note that we set the 404 status explicitly
+    return render_template('404.html'), 404
 
 
 if __name__ == "__main__":

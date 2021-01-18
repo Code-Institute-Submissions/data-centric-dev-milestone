@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-
+<!-- Flash message in slim block -->
 {% block banner_slim %}
     {% with messages = get_flashed_messages() %}
         {% if messages %}
@@ -22,7 +22,7 @@
 
 {% block content %}
 
-
+<!-- Login form block -->
 <div class="row">
     <div class="card login-card valign-wrapper">
         <div class="col m12 xl5 card-content">
