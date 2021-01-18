@@ -2,7 +2,7 @@
 
 How to use the site and check functionality:
 
-1. Load website and nagiate through the homepage
+1. Load website and navigate through the homepage
 2. Create account using a username and password. 
 3. Add a recipe following the form instructions.
 4. View the recipe by accessing the 'my_recipes' page. 
